@@ -13,6 +13,7 @@ if ($conn->connect_error) {
 
 $sql = "SELECT id, firstname, lastname FROM MyGuests";
 $result = $conn->query($sql);
+print "List of Friends from " . $_SERVER['SERVER_ADDR'];
 
 if ($result->num_rows > 0) {
     // output data of each row
