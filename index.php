@@ -1,5 +1,5 @@
 <?php
-$servername = "10.128.6.151";
+$servername = "mysql";
 $username = getenv(MYSQL_USER);
 $password = getenv(MYSQL_PASSWORD);
 $dbname = getenv(MYSQL_DATABASE);
