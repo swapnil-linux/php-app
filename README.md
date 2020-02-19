@@ -8,3 +8,13 @@ insert into MyGuests (firstname,lastname) VALUES ("Dr. Ross","Geller");
 insert into MyGuests (firstname,lastname) VALUES ("Joey","Tribbiani Jr.");
 insert into MyGuests (firstname,lastname) VALUES ("Phoebe","Buffay");
 ```
+### To deploy it on openshift use the below commands
+```
+oc new-app --name mysql mysql MYSQL_USER=swapnil MYSQL_PASSWORD=redhat MYSQL_DATABASE=friends MYSQL_ROOT_PASSWORD=r00tpa55
+
+oc new-app --name friends php:7.1~https://github.com/swapnil-linux/php-app.git MYSQL_USER=swapnil MYSQL_PASSWORD=redhat MYSQL_DATABASE=friends
+
+oc expose svc friends
+
+oc get route
+```
