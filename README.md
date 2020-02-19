@@ -1,5 +1,8 @@
 # php-app
-Sample PHP Code which connected to mysqldb to get list of friends, use the below to create table and insert records
+Sample PHP Code which connected to mysqldb to get list of friends.
+
+### use the below to create table and insert records
+
 ```
 CREATE TABLE IF NOT EXISTS MyGuests (id INT AUTO_INCREMENT PRIMARY KEY, firstname VARCHAR(255) NOT NULL, lastname VARCHAR(255) NOT NULL )  ENGINE=INNODB;insert into MyGuests (firstname,lastname) VALUES ("Chandler","Bing");
 insert into MyGuests (firstname,lastname) VALUES ("Rachel","Green");
@@ -16,5 +19,8 @@ oc new-app --name friends php:7.1~https://github.com/swapnil-linux/php-app.git M
 
 oc expose svc friends
 
-oc get route
 ```
+### wait for pods to up and hit the url of your route
+```
+oc get pods
+oc get route
