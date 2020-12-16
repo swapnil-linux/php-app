@@ -1,5 +1,5 @@
 <?php
 
-echo "V3.1Fixed Hello World!!";
+print "<h1>This Pod IP is  " . $_SERVER['SERVER_ADDR'];
 
 ?>
