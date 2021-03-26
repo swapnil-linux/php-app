@@ -1,5 +1,5 @@
 <?php
 
-print "<h1>This App v5 Pod IP is  " . $_SERVER['SERVER_ADDR'];
+print "<h1>This App v6 Pod IP is  " . $_SERVER['SERVER_ADDR'];
 
 ?>
