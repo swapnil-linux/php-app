@@ -1,5 +1,5 @@
 # php-app
-Sample PHP Code which connected to mysqldb to get list of friends.
+Sample PHP Code which connects to mysqldb to get list of friends.
 
 ### use the below to create table and insert records
 
