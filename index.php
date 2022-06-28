@@ -13,9 +13,9 @@ if ($conn->connect_error) {
 
 $sql = "SELECT id, firstname, lastname FROM MyGuests";
 $result = $conn->query($sql);
-print "<img src='friends.jpg' />";
+print "<img width='500' src='friends.jpg' />";
 print "<h1>List of Friends from " . $_SERVER['SERVER_ADDR'];
-print "<h1><br><br>";
+print "</h1><br><br>";
 
 if ($result->num_rows > 0) {
     // output data of each row
