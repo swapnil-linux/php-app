@@ -1,0 +1,40 @@
+services:
+
+  db:
+    image: mysql:8.0
+    container_name: friends-db
+    restart: unless-stopped
+    environment:
+      MYSQL_ROOT_PASSWORD: r00tpa55
+      MYSQL_DATABASE: friends
+      MYSQL_USER: swapnil
+      MYSQL_PASSWORD: redhat
+    volumes:
+      - ./init.sql:/docker-entrypoint-initdb.d/init.sql
+      - db_data:/var/lib/mysql
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost", "-u", "root", "-pr00tpa55"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+      start_period: 30s
+
+  app:
+    build: .
+    container_name: friends-app
+    restart: unless-stopped
+    ports:
+      - "8080:8080"
+    environment:
+      DBHOST: db
+      MYSQL_USER: swapnil
+      MYSQL_PASSWORD: redhat
+      MYSQL_DATABASE: friends
+      APP_VERSION: "1.0"
+      APP_COLOR: "#3c6eb4"
+    depends_on:
+      db:
+        condition: service_healthy
+
+volumes:
+  db_data:
